@@ -1,0 +1,1371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ru.ifmo.falconmanager.editor.gui.MainForm">
+  <grid id="27dc6" binding="rootPane" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="98d5d" binding="tabbedPane1" default-binding="true">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="a9ed2" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="Flights"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <splitpane id="e5317" binding="flightsSplitPane">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <dividerLocation value="250"/>
+                  <dividerSize value="8"/>
+                  <oneTouchExpandable value="true"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <grid id="cbcd3" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints>
+                      <splitpane position="left"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <toolbar id="8e6b7">
+                        <constraints border-constraint="South"/>
+                        <properties>
+                          <floatable value="false"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="b127f" class="javax.swing.JToggleButton" binding="flightsFilterButton">
+                            <constraints/>
+                            <properties>
+                              <text value="Filter"/>
+                            </properties>
+                          </component>
+                          <component id="f3f0f" class="javax.swing.JToggleButton" binding="flightsCreateButton">
+                            <constraints/>
+                            <properties>
+                              <text value="Create"/>
+                            </properties>
+                          </component>
+                          <component id="cdb99" class="javax.swing.JToggleButton" binding="flightsEditButton">
+                            <constraints/>
+                            <properties>
+                              <enabled value="false"/>
+                              <text value="Edit"/>
+                            </properties>
+                          </component>
+                          <component id="b76c6" class="javax.swing.JButton" binding="flightsDeleteButton">
+                            <constraints/>
+                            <properties>
+                              <enabled value="false"/>
+                              <text value="Delete"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </toolbar>
+                      <grid id="7ac03" layout-manager="BorderLayout" hgap="0" vgap="0">
+                        <constraints border-constraint="Center"/>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <grid id="fec25" binding="flightsCardPane" layout-manager="CardLayout" hgap="0" vgap="0">
+                            <constraints border-constraint="South"/>
+                            <properties/>
+                            <border type="etched"/>
+                            <children>
+                              <grid id="bd641" binding="flightsEditPane" layout-manager="GridBagLayout">
+                                <constraints>
+                                  <card name="Edit"/>
+                                </constraints>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <vspacer id="85673">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <component id="f33df" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Id"/>
+                                    </properties>
+                                  </component>
+                                  <component id="e8f37" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Departure airport"/>
+                                    </properties>
+                                  </component>
+                                  <component id="c99ee" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Departure date"/>
+                                    </properties>
+                                  </component>
+                                  <component id="e1cac" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Arrival airport"/>
+                                    </properties>
+                                  </component>
+                                  <component id="5e21b" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Arrival date"/>
+                                    </properties>
+                                  </component>
+                                  <component id="3600" class="javax.swing.JLabel" binding="flightsEditId">
+                                    <constraints>
+                                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="##"/>
+                                    </properties>
+                                  </component>
+                                  <vspacer id="1f9e5">
+                                    <constraints>
+                                      <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <component id="936e6" class="javax.swing.JTextField" binding="flightsEditDepartureDate">
+                                    <constraints>
+                                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="1.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="8d302" class="javax.swing.JButton" binding="flightsEditApply">
+                                    <constraints>
+                                      <grid row="6" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Apply"/>
+                                    </properties>
+                                  </component>
+                                  <component id="4438f" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Airplane"/>
+                                    </properties>
+                                  </component>
+                                  <component id="214df" class="javax.swing.JTextField" binding="flightsEditArrivalDate">
+                                    <constraints>
+                                      <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="2e304" class="javax.swing.JComboBox" binding="flightsEditAirplane">
+                                    <constraints>
+                                      <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="dd265" class="javax.swing.JComboBox" binding="flightsEditDepartureAirport">
+                                    <constraints>
+                                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="9c743" class="javax.swing.JComboBox" binding="flightsEditArrivalAirport">
+                                    <constraints>
+                                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="9590c" binding="flightsCreatePane" layout-manager="GridBagLayout">
+                                <constraints>
+                                  <card name="Create"/>
+                                </constraints>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <component id="ed5b5" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Departure airport"/>
+                                    </properties>
+                                  </component>
+                                  <component id="45e36" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Departure date"/>
+                                    </properties>
+                                  </component>
+                                  <component id="92c71" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Arrival airport"/>
+                                    </properties>
+                                  </component>
+                                  <component id="8bebc" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Arrival date"/>
+                                    </properties>
+                                  </component>
+                                  <component id="560c1" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Airplane"/>
+                                    </properties>
+                                  </component>
+                                  <component id="e3481" class="javax.swing.JTextField" binding="flightsCreateDepartureDate">
+                                    <constraints>
+                                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="1.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <vspacer id="30e1b">
+                                    <constraints>
+                                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <vspacer id="19add">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <component id="8375f" class="javax.swing.JTextField" binding="flightsCreateArrivalDate">
+                                    <constraints>
+                                      <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="196f2" class="javax.swing.JButton" binding="flightsCreateApply">
+                                    <constraints>
+                                      <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Create"/>
+                                    </properties>
+                                  </component>
+                                  <component id="ebc34" class="javax.swing.JComboBox" binding="flightsCreateAirplane">
+                                    <constraints>
+                                      <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="65145" class="javax.swing.JComboBox" binding="flightsCreateDepartureAirport">
+                                    <constraints>
+                                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="6963e" class="javax.swing.JComboBox" binding="flightsCreateArrivalAirport">
+                                    <constraints>
+                                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="d8683" binding="flightsFilterPane" layout-manager="GridBagLayout">
+                                <constraints>
+                                  <card name="Filter"/>
+                                </constraints>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <vspacer id="d8e8c">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <vspacer id="f8c6f">
+                                    <constraints>
+                                      <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <component id="996dd" class="javax.swing.JButton" binding="flightsFilterApply">
+                                    <constraints>
+                                      <grid row="4" column="0" row-span="1" col-span="6" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Filter"/>
+                                    </properties>
+                                  </component>
+                                  <component id="115d8" class="javax.swing.JComboBox" binding="flightsFilterDepartureAirport">
+                                    <constraints>
+                                      <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="1.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="c74d9" class="javax.swing.JComboBox" binding="flightsFilterArrivalAirport">
+                                    <constraints>
+                                      <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="b6b91" class="javax.swing.JTextField" binding="flightsFilterDepartureDate">
+                                    <constraints>
+                                      <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="7e4a5" class="javax.swing.JCheckBox" binding="flightsFilterDepartureAirportCheckBox">
+                                    <constraints>
+                                      <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Departure airport"/>
+                                    </properties>
+                                  </component>
+                                  <component id="af26d" class="javax.swing.JCheckBox" binding="flightsFilterArrivalAirportCheckBox">
+                                    <constraints>
+                                      <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Arrival airport"/>
+                                    </properties>
+                                  </component>
+                                  <component id="f7b63" class="javax.swing.JCheckBox" binding="flightsFilterDepartureDateCheckBox">
+                                    <constraints>
+                                      <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Departure date"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                            </children>
+                          </grid>
+                          <scrollpane id="b2233">
+                            <constraints border-constraint="Center"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="9785c" class="javax.swing.JTable" binding="flightsTable">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                  <grid id="126cb" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints>
+                      <splitpane position="right"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <toolbar id="7b3c7">
+                        <constraints border-constraint="South"/>
+                        <properties>
+                          <floatable value="false"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="27e96" class="javax.swing.JToggleButton" binding="ticketsCreateButton">
+                            <constraints/>
+                            <properties>
+                              <enabled value="false"/>
+                              <text value="Create"/>
+                            </properties>
+                          </component>
+                          <component id="84e80" class="javax.swing.JToggleButton" binding="ticketsEditButton">
+                            <constraints/>
+                            <properties>
+                              <enabled value="false"/>
+                              <text value="Edit"/>
+                            </properties>
+                          </component>
+                          <component id="3357c" class="javax.swing.JButton" binding="ticketsDeleteButton">
+                            <constraints/>
+                            <properties>
+                              <enabled value="false"/>
+                              <text value="Delete"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </toolbar>
+                      <grid id="88c0a" layout-manager="BorderLayout" hgap="0" vgap="0">
+                        <constraints border-constraint="Center"/>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <grid id="8d6f1" binding="ticketsCardPane" layout-manager="CardLayout" hgap="0" vgap="0">
+                            <constraints border-constraint="South"/>
+                            <properties/>
+                            <border type="etched"/>
+                            <children>
+                              <grid id="d165a" binding="ticketsEditPane" layout-manager="GridBagLayout">
+                                <constraints>
+                                  <card name="Edit"/>
+                                </constraints>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <component id="9acf9" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Id"/>
+                                    </properties>
+                                  </component>
+                                  <component id="cf6ab" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Flight id"/>
+                                    </properties>
+                                  </component>
+                                  <component id="5a39e" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Seat"/>
+                                    </properties>
+                                  </component>
+                                  <component id="82251" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Client name"/>
+                                    </properties>
+                                  </component>
+                                  <component id="3b509" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Client passport"/>
+                                    </properties>
+                                  </component>
+                                  <vspacer id="de7dd">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <component id="280a6" class="javax.swing.JLabel" binding="ticketsEditId">
+                                    <constraints>
+                                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="##"/>
+                                    </properties>
+                                  </component>
+                                  <vspacer id="ae8ce">
+                                    <constraints>
+                                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <component id="28042" class="javax.swing.JLabel" binding="ticketsEditFlightId">
+                                    <constraints>
+                                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="##"/>
+                                    </properties>
+                                  </component>
+                                  <component id="3bef0" class="javax.swing.JTextField" binding="ticketsEditClientName">
+                                    <constraints>
+                                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="1.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="a58bb" class="javax.swing.JTextField" binding="ticketsEditClientPassport">
+                                    <constraints>
+                                      <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="c693b" class="javax.swing.JComboBox" binding="ticketsEditSeat">
+                                    <constraints>
+                                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="72903" class="javax.swing.JButton" binding="ticketsEditApply">
+                                    <constraints>
+                                      <grid row="5" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Apply"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="ea7be" binding="ticketsCreatePane" layout-manager="GridBagLayout">
+                                <constraints>
+                                  <card name="Create"/>
+                                </constraints>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <component id="1bb9d" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Flight id"/>
+                                    </properties>
+                                  </component>
+                                  <component id="39500" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Client name"/>
+                                    </properties>
+                                  </component>
+                                  <component id="dfda6" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Client passport"/>
+                                    </properties>
+                                  </component>
+                                  <component id="f0e92" class="javax.swing.JTextField" binding="ticketsCreateClientName">
+                                    <constraints>
+                                      <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="1.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="2b7db" class="javax.swing.JTextField" binding="ticketsCreateClientPassport">
+                                    <constraints>
+                                      <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="f76b0" class="javax.swing.JLabel" binding="ticketsCreateFlightId">
+                                    <constraints>
+                                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="##"/>
+                                    </properties>
+                                  </component>
+                                  <vspacer id="a8e67">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <vspacer id="cd214">
+                                    <constraints>
+                                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <component id="2d5ee" class="javax.swing.JButton" binding="ticketsCreateApply">
+                                    <constraints>
+                                      <grid row="5" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Create"/>
+                                    </properties>
+                                  </component>
+                                  <component id="5bbb" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Seat"/>
+                                    </properties>
+                                  </component>
+                                  <component id="d7436" class="javax.swing.JComboBox" binding="ticketsCreateSeat">
+                                    <constraints>
+                                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                </children>
+                              </grid>
+                            </children>
+                          </grid>
+                          <scrollpane id="18cf8">
+                            <constraints border-constraint="Center"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="f2bb6" class="javax.swing.JTable" binding="ticketsTable">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                </children>
+              </splitpane>
+            </children>
+          </grid>
+          <grid id="9823f" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="Airplanes"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <splitpane id="7e4c5" binding="airplanesSplitPane">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <dividerLocation value="250"/>
+                  <dividerSize value="8"/>
+                  <oneTouchExpandable value="true"/>
+                  <resizeWeight value="0.5"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <grid id="c7215" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints>
+                      <splitpane position="right"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <toolbar id="44ba9">
+                        <constraints border-constraint="South"/>
+                        <properties>
+                          <floatable value="false"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="7aa8" class="javax.swing.JToggleButton" binding="airplaneSeatsCreateButton">
+                            <constraints/>
+                            <properties>
+                              <enabled value="false"/>
+                              <text value="Create"/>
+                            </properties>
+                          </component>
+                          <component id="1181" class="javax.swing.JToggleButton" binding="airplaneSeatsEditButton">
+                            <constraints/>
+                            <properties>
+                              <enabled value="false"/>
+                              <text value="Edit"/>
+                            </properties>
+                          </component>
+                          <component id="f69dc" class="javax.swing.JButton" binding="airplaneSeatsDeleteButton">
+                            <constraints/>
+                            <properties>
+                              <enabled value="false"/>
+                              <text value="Delete"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </toolbar>
+                      <grid id="1794d" layout-manager="BorderLayout" hgap="0" vgap="0">
+                        <constraints border-constraint="Center"/>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <grid id="674d7" binding="airplaneSeatsCardPane" layout-manager="CardLayout" hgap="0" vgap="0">
+                            <constraints border-constraint="South"/>
+                            <properties/>
+                            <border type="etched"/>
+                            <children>
+                              <grid id="f55cd" binding="airplaneSeatsEditPane" layout-manager="GridBagLayout">
+                                <constraints>
+                                  <card name="Edit"/>
+                                </constraints>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <component id="cdb73" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Id"/>
+                                    </properties>
+                                  </component>
+                                  <component id="3bd09" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Airplane id"/>
+                                    </properties>
+                                  </component>
+                                  <component id="d45c4" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Seat"/>
+                                    </properties>
+                                  </component>
+                                  <component id="bb968" class="javax.swing.JLabel" binding="airplaneSeatsEditAirplaneId">
+                                    <constraints>
+                                      <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="##"/>
+                                    </properties>
+                                  </component>
+                                  <component id="46fbb" class="javax.swing.JLabel" binding="airplaneSeatsEditId">
+                                    <constraints>
+                                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="##"/>
+                                    </properties>
+                                  </component>
+                                  <component id="dae7a" class="javax.swing.JTextField" binding="airplaneSeatsEditSeat">
+                                    <constraints>
+                                      <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="1.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <vspacer id="4c640">
+                                    <constraints>
+                                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <vspacer id="f7093">
+                                    <constraints>
+                                      <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <component id="ba6f4" class="javax.swing.JButton" binding="airplaneSeatsEditApply">
+                                    <constraints>
+                                      <grid row="3" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Apply"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="67ee4" binding="airplaneSeatsCreatePane" layout-manager="GridBagLayout">
+                                <constraints>
+                                  <card name="Create"/>
+                                </constraints>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <component id="24bd7" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Airplane id"/>
+                                    </properties>
+                                  </component>
+                                  <component id="8c438" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Seat"/>
+                                    </properties>
+                                  </component>
+                                  <component id="dfe43" class="javax.swing.JLabel" binding="airplaneSeatsCreateAirplaneId">
+                                    <constraints>
+                                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="##"/>
+                                    </properties>
+                                  </component>
+                                  <component id="4c47" class="javax.swing.JTextField" binding="airplaneSeatsCreateSeat">
+                                    <constraints>
+                                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="1.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <component id="40fec" class="javax.swing.JButton" binding="airplaneSeatsCreateApply">
+                                    <constraints>
+                                      <grid row="3" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Create"/>
+                                    </properties>
+                                  </component>
+                                  <vspacer id="35567">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <vspacer id="db3a4">
+                                    <constraints>
+                                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                </children>
+                              </grid>
+                            </children>
+                          </grid>
+                          <scrollpane id="83759">
+                            <constraints border-constraint="Center"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="81925" class="javax.swing.JTable" binding="airplaneSeatsTable">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                  <grid id="5640d" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints>
+                      <splitpane position="left"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <toolbar id="65935">
+                        <constraints border-constraint="South"/>
+                        <properties>
+                          <floatable value="false"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="3e00" class="javax.swing.JToggleButton" binding="airplanesCreateButton">
+                            <constraints/>
+                            <properties>
+                              <text value="Create"/>
+                            </properties>
+                          </component>
+                          <component id="d5188" class="javax.swing.JToggleButton" binding="airplanesEditButton">
+                            <constraints/>
+                            <properties>
+                              <enabled value="false"/>
+                              <text value="Edit"/>
+                            </properties>
+                          </component>
+                          <component id="523f6" class="javax.swing.JButton" binding="airplanesDeleteButton">
+                            <constraints/>
+                            <properties>
+                              <enabled value="false"/>
+                              <text value="Delete"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </toolbar>
+                      <grid id="d82ed" layout-manager="BorderLayout" hgap="0" vgap="0">
+                        <constraints border-constraint="Center"/>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <grid id="76523" binding="airplanesCardPane" layout-manager="CardLayout" hgap="0" vgap="0">
+                            <constraints border-constraint="South"/>
+                            <properties/>
+                            <border type="etched"/>
+                            <children>
+                              <grid id="b1bb9" binding="airplanesEditPane" layout-manager="GridBagLayout">
+                                <constraints>
+                                  <card name="Edit"/>
+                                </constraints>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <component id="147d3" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Id"/>
+                                    </properties>
+                                  </component>
+                                  <component id="96b76" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Name"/>
+                                    </properties>
+                                  </component>
+                                  <component id="2773c" class="javax.swing.JLabel" binding="airplanesEditId">
+                                    <constraints>
+                                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="##"/>
+                                    </properties>
+                                  </component>
+                                  <component id="87f1d" class="javax.swing.JTextField" binding="airplanesEditName">
+                                    <constraints>
+                                      <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="1.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <vspacer id="e0e5b">
+                                    <constraints>
+                                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <vspacer id="f4124">
+                                    <constraints>
+                                      <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <component id="c9367" class="javax.swing.JButton" binding="airplanesEditApply">
+                                    <constraints>
+                                      <grid row="2" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Apply"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <grid id="a5606" binding="airplanesCreatePane" layout-manager="GridBagLayout">
+                                <constraints>
+                                  <card name="Create"/>
+                                </constraints>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <component id="d2c6a" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Name"/>
+                                    </properties>
+                                  </component>
+                                  <component id="10671" class="javax.swing.JTextField" binding="airplanesCreateName">
+                                    <constraints>
+                                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="-1"/>
+                                      </grid>
+                                      <gridbag weightx="1.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties/>
+                                  </component>
+                                  <vspacer id="1b49c">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                  <component id="78e4f" class="javax.swing.JButton" binding="airplanesCreateApply">
+                                    <constraints>
+                                      <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="0.0"/>
+                                    </constraints>
+                                    <properties>
+                                      <text value="Create"/>
+                                    </properties>
+                                  </component>
+                                  <vspacer id="5f772">
+                                    <constraints>
+                                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                                      <gridbag weightx="0.0" weighty="1.0"/>
+                                    </constraints>
+                                  </vspacer>
+                                </children>
+                              </grid>
+                            </children>
+                          </grid>
+                          <scrollpane id="8125a">
+                            <constraints border-constraint="Center"/>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="ab5d4" class="javax.swing.JTable" binding="airplanesTable">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                </children>
+              </splitpane>
+            </children>
+          </grid>
+          <grid id="6d8d2" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <tabbedpane title="Airports"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <toolbar id="17671">
+                <constraints border-constraint="South"/>
+                <properties>
+                  <borderPainted value="true"/>
+                  <enabled value="true"/>
+                  <floatable value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="861c9" class="javax.swing.JToggleButton" binding="airportsCreateButton">
+                    <constraints/>
+                    <properties>
+                      <selected value="false"/>
+                      <text value="Create"/>
+                      <toolTipText value=""/>
+                    </properties>
+                  </component>
+                  <component id="bf7c3" class="javax.swing.JToggleButton" binding="airportsEditButton">
+                    <constraints/>
+                    <properties>
+                      <enabled value="false"/>
+                      <selected value="false"/>
+                      <text value="Edit"/>
+                    </properties>
+                  </component>
+                  <component id="19f28" class="javax.swing.JButton" binding="airportsDeleteButton">
+                    <constraints/>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="Delete"/>
+                    </properties>
+                  </component>
+                </children>
+              </toolbar>
+              <grid id="62425" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="b0c1b" binding="airportsCardPane" layout-manager="CardLayout" hgap="0" vgap="0">
+                    <constraints border-constraint="South"/>
+                    <properties/>
+                    <border type="etched"/>
+                    <children>
+                      <grid id="8d729" binding="airportsEditPane" layout-manager="GridBagLayout">
+                        <constraints>
+                          <card name="Edit"/>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="79126" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                            <properties>
+                              <text value="Id"/>
+                            </properties>
+                          </component>
+                          <component id="91369" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                            <properties>
+                              <text value="Short name"/>
+                            </properties>
+                          </component>
+                          <component id="e381c" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                            <properties>
+                              <text value="Full name"/>
+                            </properties>
+                          </component>
+                          <component id="14915" class="javax.swing.JLabel" binding="airportsEditId">
+                            <constraints>
+                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                            <properties>
+                              <text value="##"/>
+                            </properties>
+                          </component>
+                          <component id="7d486" class="javax.swing.JTextField" binding="airportsEditShortName">
+                            <constraints>
+                              <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="150" height="-1"/>
+                              </grid>
+                              <gridbag weightx="1.0" weighty="0.0"/>
+                            </constraints>
+                            <properties/>
+                          </component>
+                          <component id="da27b" class="javax.swing.JTextField" binding="airportsEditFullName">
+                            <constraints>
+                              <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="150" height="-1"/>
+                              </grid>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                            <properties/>
+                          </component>
+                          <component id="5eca7" class="javax.swing.JButton" binding="airportsEditApply">
+                            <constraints>
+                              <grid row="3" column="0" row-span="1" col-span="9" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                            <properties>
+                              <text value="Apply"/>
+                            </properties>
+                          </component>
+                          <vspacer id="da0da">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="1.0"/>
+                            </constraints>
+                          </vspacer>
+                          <vspacer id="67c07">
+                            <constraints>
+                              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                          </vspacer>
+                        </children>
+                      </grid>
+                      <grid id="43de4" binding="airportsCreatePane" layout-manager="GridBagLayout">
+                        <constraints>
+                          <card name="Create"/>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="ab2f8" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                            <properties>
+                              <text value="Short name"/>
+                            </properties>
+                          </component>
+                          <component id="6bd58" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                            <properties>
+                              <text value="Full name"/>
+                            </properties>
+                          </component>
+                          <component id="46ce2" class="javax.swing.JTextField" binding="airportsCreateShortName">
+                            <constraints>
+                              <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="150" height="-1"/>
+                              </grid>
+                              <gridbag weightx="1.0" weighty="0.0"/>
+                            </constraints>
+                            <properties/>
+                          </component>
+                          <component id="50e9b" class="javax.swing.JTextField" binding="airportsCreateFullName">
+                            <constraints>
+                              <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <preferred-size width="150" height="-1"/>
+                              </grid>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                            <properties/>
+                          </component>
+                          <vspacer id="8e680">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="1.0"/>
+                            </constraints>
+                          </vspacer>
+                          <component id="ca05f" class="javax.swing.JButton" binding="airportsCreateApply">
+                            <constraints>
+                              <grid row="3" column="0" row-span="1" col-span="9" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                            <properties>
+                              <text value="Create"/>
+                            </properties>
+                          </component>
+                          <vspacer id="5898d">
+                            <constraints>
+                              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                              <gridbag weightx="0.0" weighty="0.0"/>
+                            </constraints>
+                          </vspacer>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                  <scrollpane id="89221">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="a6a0a" class="javax.swing.JTable" binding="airportsTable">
+                        <constraints/>
+                        <properties>
+                          <autoCreateRowSorter value="false"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="airportsButtonGroup" bound="true">
+      <member id="861c9"/>
+      <member id="bf7c3"/>
+    </group>
+    <group name="airplanesButtonGroup" bound="true">
+      <member id="3e00"/>
+      <member id="d5188"/>
+    </group>
+    <group name="airplaneSeatsButtonGroup" bound="true">
+      <member id="7aa8"/>
+      <member id="1181"/>
+    </group>
+    <group name="flightsButtonGroup" bound="true">
+      <member id="f3f0f"/>
+      <member id="cdb99"/>
+      <member id="b127f"/>
+    </group>
+    <group name="ticketsButtonGroup" bound="true">
+      <member id="27e96"/>
+      <member id="84e80"/>
+    </group>
+  </buttonGroups>
+</form>

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="client" default="all">
+
+    <property name="deploy.dir" value="${basedir}/deploy"/>
+    <property name="deploy.common.jar" value="${deploy.dir}/common.jar"/>
+    <property name="deploy.editor.jar" value="${deploy.dir}/editor.jar"/>
+    <property name="deploy.monitor.jar" value="${deploy.dir}/monitor.jar"/>
+
+    <!-- Uncomment the following property if no tests compilation is needed -->
+    <!--
+   <property name="skip.tests" value="true"/>
+    -->
+
+    <!-- Compiler options -->
+
+    <property name="compiler.debug" value="on"/>
+    <property name="compiler.generate.no.warnings" value="off"/>
+    <property name="compiler.args" value=""/>
+    <property name="compiler.max.memory" value="128m"/>
+    <patternset id="ignored.files">
+        <exclude name="**/CVS/**"/>
+        <exclude name="**/SCCS/**"/>
+        <exclude name="**/RCS/**"/>
+        <exclude name="**/rcs/**"/>
+        <exclude name="**/.DS_Store/**"/>
+        <exclude name="**/.svn/**"/>
+        <exclude name="**/.sbas/**"/>
+        <exclude name="**/.IJI.*/**"/>
+        <exclude name="**/vssver.scc/**"/>
+        <exclude name="**/vssver2.scc/**"/>
+    </patternset>
+    <patternset id="compiler.resources">
+        <include name="**/?*.properties"/>
+        <include name="**/?*.xml"/>
+        <include name="**/?*.gif"/>
+        <include name="**/?*.png"/>
+        <include name="**/?*.jpeg"/>
+        <include name="**/?*.jpg"/>
+        <include name="**/?*.html"/>
+        <include name="**/?*.dtd"/>
+        <include name="**/?*.tld"/>
+    </patternset>
+
+
+    <!-- Project Libraries -->
+
+    <path id="library.vbj.classpath">
+        <pathelement location="${basedir}/lib/vbjorb.jar"/>
+    </path>
+
+    <path id="library.log4j.classpath">
+        <pathelement location="${basedir}/lib/log4j.jar"/>
+    </path>
+
+
+    <!-- Application Server Libraries -->
+
+    <!-- Modules -->
+
+
+    <!-- Module common -->
+
+    <dirname property="module.common.basedir" file="${ant.file}"/>
+
+
+    <property name="compiler.args.common" value="${compiler.args}"/>
+
+    <property name="common.output.dir" value="${module.common.basedir}/build/production/common"/>
+    <property name="common.testoutput.dir" value="${module.common.basedir}/build/test/common"/>
+
+    <path id="common.module.bootclasspath">
+        <!-- Paths to be included in compilation bootclasspath -->
+    </path>
+
+    <path id="common.module.classpath">
+        <path refid="library.vbj.classpath"/>
+        <path refid="library.log4j.classpath"/>
+    </path>
+
+    <path id="common.runtime.module.classpath">
+        <path refid="library.vbj.classpath"/>
+        <path refid="library.log4j.classpath"/>
+    </path>
+
+
+    <patternset id="excluded.from.module.common">
+        <patternset refid="ignored.files"/>
+    </patternset>
+
+    <patternset id="excluded.from.compilation.common">
+        <patternset refid="excluded.from.module.common"/>
+    </patternset>
+
+    <path id="common.module.sourcepath">
+        <dirset dir="${module.common.basedir}/common">
+            <include name="src"/>
+            <include name="src_idl"/>
+        </dirset>
+    </path>
+
+
+    <target name="compile.module.common" depends="compile.module.common.production,compile.module.common.tests"
+            description="Compile module common"/>
+
+    <target name="compile.module.common.production" description="Compile module common; production classes">
+        <mkdir dir="${common.output.dir}"/>
+        <javac destdir="${common.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}"
+               memorymaximumsize="${compiler.max.memory}" fork="true">
+            <compilerarg line="${compiler.args.common}"/>
+            <bootclasspath refid="common.module.bootclasspath"/>
+            <classpath refid="common.module.classpath"/>
+            <src refid="common.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.common"/>
+        </javac>
+
+        <copy todir="${common.output.dir}">
+            <fileset dir="${module.common.basedir}/common/src">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+            <fileset dir="${module.common.basedir}/common/src_idl">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile.module.common.tests" depends="compile.module.common.production"
+            description="compile module common; test classes" unless="skip.tests"/>
+
+    <target name="clean.module.common" description="cleanup module">
+        <delete dir="${common.output.dir}"/>
+        <delete dir="${common.testoutput.dir}"/>
+    </target>
+
+
+    <!-- Module editor -->
+
+    <dirname property="module.editor.basedir" file="${ant.file}"/>
+
+
+    <property name="compiler.args.editor" value="${compiler.args}"/>
+
+    <property name="editor.output.dir" value="${module.editor.basedir}/build/production/editor"/>
+    <property name="editor.testoutput.dir" value="${module.editor.basedir}/build/test/editor"/>
+
+    <path id="editor.module.bootclasspath">
+        <!-- Paths to be included in compilation bootclasspath -->
+    </path>
+
+    <path id="editor.module.classpath">
+        <pathelement location="${common.output.dir}"/>
+        <pathelement location="${common.testoutput.dir}"/>
+        <path refid="library.vbj.classpath"/>
+    </path>
+
+    <path id="editor.runtime.module.classpath">
+        <pathelement location="${common.output.dir}"/>
+        <pathelement location="${common.testoutput.dir}"/>
+        <pathelement location="${module.editor.basedir}/lib/vbjorb.jar"/>
+        <pathelement location="${module.editor.basedir}/lib/log4j.jar"/>
+        <path refid="library.vbj.classpath"/>
+    </path>
+
+
+    <patternset id="excluded.from.module.editor">
+        <patternset refid="ignored.files"/>
+    </patternset>
+
+    <patternset id="excluded.from.compilation.editor">
+        <patternset refid="excluded.from.module.editor"/>
+    </patternset>
+
+    <path id="editor.module.sourcepath">
+        <dirset dir="${module.editor.basedir}/editor">
+            <include name="src"/>
+        </dirset>
+    </path>
+
+
+    <target name="compile.module.editor" depends="compile.module.editor.production,compile.module.editor.tests"
+            description="Compile module editor"/>
+
+    <target name="compile.module.editor.production" depends="compile.module.common"
+            description="Compile module editor; production classes">
+        <mkdir dir="${editor.output.dir}"/>
+        <javac destdir="${editor.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}"
+               memorymaximumsize="${compiler.max.memory}" fork="true">
+            <compilerarg line="${compiler.args.editor}"/>
+            <bootclasspath refid="editor.module.bootclasspath"/>
+            <classpath refid="editor.module.classpath"/>
+            <src refid="editor.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.editor"/>
+        </javac>
+
+        <copy todir="${editor.output.dir}">
+            <fileset dir="${module.editor.basedir}/editor/src">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile.module.editor.tests" depends="compile.module.editor.production"
+            description="compile module editor; test classes" unless="skip.tests"/>
+
+    <target name="clean.module.editor" description="cleanup module">
+        <delete dir="${editor.output.dir}"/>
+        <delete dir="${editor.testoutput.dir}"/>
+    </target>
+
+
+    <!-- Module monitor -->
+
+    <dirname property="module.monitor.basedir" file="${ant.file}"/>
+
+
+    <property name="compiler.args.monitor" value="${compiler.args}"/>
+
+    <property name="monitor.output.dir" value="${module.monitor.basedir}/build/production/monitor"/>
+    <property name="monitor.testoutput.dir" value="${module.monitor.basedir}/build/test/monitor"/>
+
+    <path id="monitor.module.bootclasspath">
+        <!-- Paths to be included in compilation bootclasspath -->
+    </path>
+
+    <path id="monitor.module.classpath">
+        <pathelement location="${common.output.dir}"/>
+        <pathelement location="${common.testoutput.dir}"/>
+        <path refid="library.vbj.classpath"/>
+        <path refid="library.log4j.classpath"/>
+    </path>
+
+    <path id="monitor.runtime.module.classpath">
+        <pathelement location="${common.output.dir}"/>
+        <pathelement location="${common.testoutput.dir}"/>
+        <pathelement location="${module.monitor.basedir}/lib/vbjorb.jar"/>
+        <pathelement location="${module.monitor.basedir}/lib/log4j.jar"/>
+        <path refid="library.vbj.classpath"/>
+        <path refid="library.log4j.classpath"/>
+    </path>
+
+
+    <patternset id="excluded.from.module.monitor">
+        <patternset refid="ignored.files"/>
+    </patternset>
+
+    <patternset id="excluded.from.compilation.monitor">
+        <patternset refid="excluded.from.module.monitor"/>
+    </patternset>
+
+    <path id="monitor.module.sourcepath">
+        <dirset dir="${module.monitor.basedir}/monitor">
+            <include name="src"/>
+        </dirset>
+    </path>
+
+
+    <target name="compile.module.monitor" depends="compile.module.monitor.production,compile.module.monitor.tests"
+            description="Compile module monitor"/>
+
+    <target name="compile.module.monitor.production" depends="compile.module.common"
+            description="Compile module monitor; production classes">
+        <mkdir dir="${monitor.output.dir}"/>
+        <javac destdir="${monitor.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}"
+               memorymaximumsize="${compiler.max.memory}" fork="true">
+            <compilerarg line="${compiler.args.monitor}"/>
+            <bootclasspath refid="monitor.module.bootclasspath"/>
+            <classpath refid="monitor.module.classpath"/>
+            <src refid="monitor.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.monitor"/>
+        </javac>
+
+        <copy todir="${monitor.output.dir}">
+            <fileset dir="${module.monitor.basedir}/monitor/src">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile.module.monitor.tests" depends="compile.module.monitor.production"
+            description="compile module monitor; test classes" unless="skip.tests"/>
+
+    <target name="clean.module.monitor" description="cleanup module">
+        <delete dir="${monitor.output.dir}"/>
+        <delete dir="${monitor.testoutput.dir}"/>
+    </target>
+
+    <target name="init" description="Build initialization">
+        <!-- Perform any build initialization in this target -->
+    </target>
+
+    <target name="clean" depends="clean.module.common, clean.module.editor, clean.module.monitor"
+            description="cleanup all">
+        <delete dir="deploy"/>
+    </target>
+
+    <target name="compile" depends="compile.module.common, compile.module.editor, compile.module.monitor"
+            description="compile all"/>
+
+    <target name="all" depends="init, clean, compile, deploy" description="build all"/>
+
+    <target name="deploy" depends="init, clean, compile" description="deploy all">
+        <mkdir dir="${deploy.dir}" />
+        <copydir src="${basedir}/lib" dest="${deploy.dir}"/>
+        <copy todir="${deploy.dir}">
+           <fileset file="${basedir}/log4j.properties"/>
+        </copy>
+        <jar file="${deploy.common.jar}" basedir="${common.output.dir}"/>
+        <jar file="${deploy.editor.jar}" basedir="${editor.output.dir}">
+            <manifest>
+                <attribute name="Class-Path" value="common.jar log4j.jar vbjorb.jar"/>
+                <attribute name="Main-Class" value="ru.ifmo.falconmanager.editor.Main"/>
+            </manifest>
+        </jar>
+        <jar file="${deploy.monitor.jar}" basedir="${monitor.output.dir}">
+            <manifest>
+                <attribute name="Class-Path" value="common.jar log4j.jar vbjorb.jar"/>
+                <attribute name="Main-Class" value="ru.ifmo.falconmanager.monitor.Main"/>
+            </manifest>
+        </jar>
+        <echo file="${deploy.dir}/run.cmd">@start vbj -classpath log4j.jar;common.jar;editor.jar;monitor.jar ru.ifmo.falconmanager.%1.Main
+        </echo>
+    </target>
+</project>

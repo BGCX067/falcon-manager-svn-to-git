@@ -1,0 +1,1 @@
+sqlplus scott/tiger @reset_tables.sql

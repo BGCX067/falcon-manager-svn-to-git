@@ -1,0 +1,95 @@
+// Falcon.idl
+
+module ru {
+    module ifmo {
+        module falconmanager {
+            module idl {
+                struct Airport {
+                    long id;
+                    string shortName;
+                    string fullName;
+                    long timeZone;
+                };
+                typedef sequence<Airport> AirportArray;
+            
+                struct AirplaneSeat {
+                    long id;
+                    long airplaneId;
+                    string seat;
+                };    
+                typedef sequence<AirplaneSeat> AirplaneSeatArray;
+        
+                struct Airplane {
+                    long id;
+                    string name;
+                };    
+                typedef sequence<Airplane> AirplaneArray;
+        
+        
+                struct Flight {
+                    long id;
+                    long departureAirportId;
+                    string departureDate;
+                    long arrivalAirportId;
+                    string arrivalDate;
+                    long airplaneId;
+                };    
+                typedef sequence<Flight> FlightArray;
+
+                struct Ticket {
+                    long id;
+                    long flightId;
+                    long seatId;
+                    string clientName;
+                    string clientPassport;
+                };    
+                typedef sequence<Ticket> TicketArray;
+
+                interface DatabaseListener {
+                    void updateAirports();
+                    void updateAirplanes();
+                    void updateAirplaneSeats();
+                    void updateFlights();
+                    void updateTickets();
+                };
+
+
+                interface Database {
+                    void addDatabaseListener(in DatabaseListener listener);
+
+                    AirportArray getAllAirports();
+                    AirportArray getAirport(in long id);
+                    boolean addAirport(in string shortName, in string fullName);
+                    boolean updateAirport(in long id, in string shortName, in string fullName);
+                    boolean deleteAirport(in long id);
+
+                    AirplaneArray getAllAirplanes();
+                    AirplaneArray getAirplane(in long id);
+                    boolean addAirplane(in string name);
+                    boolean updateAirplane(in long id, in string name);
+                    boolean deleteAirplane(in long id);
+
+                    AirplaneSeatArray getAllAirplaneSeats();
+//                    Result getAllAirplaneSeatsOfAirplane(in long airplaneId);
+                    AirplaneSeatArray getAirplaneSeat(in long id);
+                    boolean addAirplaneSeat(in long airplaneId, in string seat);
+                    boolean updateAirplaneSeat(in long id, in long airplaneId, in string seat);
+                    boolean deleteAirplaneSeat(in long id);
+
+                    FlightArray getAllFlights();
+                    FlightArray getFlight(in long id);
+                    boolean addFlight(in long departureAirportId, in string departureDate, in long arrivalAirportId, in string arrivalDate, in long airplaneId);
+                    boolean updateFlight(in long id, in long departureAirportId, in string departureDate, in long arrivalAirportId, in string arrivalDate, in long airplaneId);
+                    boolean deleteFlight(in long id);
+
+                    TicketArray getAllTickets();
+//                    Result getAllTicketsOfFlight(in long flightId);
+                    TicketArray getTicket(in long id);
+                    boolean addTicket(in long flightId, in long seatId, in string clientName, in string clientPassport);
+                    boolean updateTicket(in long id, in long flightId, in long seatId, in string clientName, in string clientPassport);
+                    boolean deleteTicket(in long id);
+                };
+            };
+        };
+    };
+};
